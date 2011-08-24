@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		941F244E13FB056500210774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941F244D13FB056500210774 /* UIKit.framework */; };
+		941F245013FB056500210774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941F244F13FB056500210774 /* Foundation.framework */; };
+		941F245213FB056500210774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941F245113FB056500210774 /* CoreGraphics.framework */; };
+		941F245813FB056500210774 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 941F245613FB056500210774 /* InfoPlist.strings */; };
+		941F245B13FB056500210774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F245A13FB056500210774 /* main.m */; };
+		941F245E13FB056500210774 /* testDragAndDropAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F245D13FB056500210774 /* testDragAndDropAppDelegate.m */; };
+		941F246113FB056500210774 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F245F13FB056500210774 /* MainWindow.xib */; };
+		941F246413FB056500210774 /* testDragAndDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F246313FB056500210774 /* testDragAndDropViewController.m */; };
+		941F246713FB056500210774 /* testDragAndDropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F246513FB056500210774 /* testDragAndDropViewController.xib */; };
+		941F246F13FB07A100210774 /* DnDOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 941F246E13FB07A100210774 /* DnDOverlayView.xib */; };
+		941F247213FB07D400210774 /* DnDOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F247113FB07D400210774 /* DnDOverlayView.m */; };
+		941F247513FDA32000210774 /* DnDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F247413FDA32000210774 /* DnDManager.m */; };
+		941F247B13FDAD5000210774 /* DragDropDemoTable1.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F247A13FDAD5000210774 /* DragDropDemoTable1.m */; };
+		941F247E13FDAD6000210774 /* DragDropDemoTable2.m in Sources */ = {isa = PBXBuildFile; fileRef = 941F247D13FDAD6000210774 /* DragDropDemoTable2.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		941F244913FB056500210774 /* testDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		941F244D13FB056500210774 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		941F244F13FB056500210774 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		941F245113FB056500210774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		941F245513FB056500210774 /* testDragAndDrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testDragAndDrop-Info.plist"; sourceTree = "<group>"; };
+		941F245713FB056500210774 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		941F245913FB056500210774 /* testDragAndDrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testDragAndDrop-Prefix.pch"; sourceTree = "<group>"; };
+		941F245A13FB056500210774 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		941F245C13FB056500210774 /* testDragAndDropAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testDragAndDropAppDelegate.h; sourceTree = "<group>"; };
+		941F245D13FB056500210774 /* testDragAndDropAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testDragAndDropAppDelegate.m; sourceTree = "<group>"; };
+		941F246013FB056500210774 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		941F246213FB056500210774 /* testDragAndDropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testDragAndDropViewController.h; sourceTree = "<group>"; };
+		941F246313FB056500210774 /* testDragAndDropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testDragAndDropViewController.m; sourceTree = "<group>"; };
+		941F246613FB056500210774 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/testDragAndDropViewController.xib; sourceTree = "<group>"; };
+		941F246E13FB07A100210774 /* DnDOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DnDOverlayView.xib; sourceTree = "<group>"; };
+		941F247013FB07D400210774 /* DnDOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DnDOverlayView.h; sourceTree = "<group>"; };
+		941F247113FB07D400210774 /* DnDOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DnDOverlayView.m; sourceTree = "<group>"; };
+		941F247313FDA32000210774 /* DnDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DnDManager.h; sourceTree = "<group>"; };
+		941F247413FDA32000210774 /* DnDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DnDManager.m; sourceTree = "<group>"; };
+		941F247613FDA8C600210774 /* DnDProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DnDProtocols.h; sourceTree = "<group>"; };
+		941F247913FDAD5000210774 /* DragDropDemoTable1.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DragDropDemoTable1.h; sourceTree = "<group>"; };
+		941F247A13FDAD5000210774 /* DragDropDemoTable1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropDemoTable1.m; sourceTree = "<group>"; };
+		941F247C13FDAD6000210774 /* DragDropDemoTable2.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DragDropDemoTable2.h; sourceTree = "<group>"; };
+		941F247D13FDAD6000210774 /* DragDropDemoTable2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropDemoTable2.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		941F244613FB056500210774 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				941F244E13FB056500210774 /* UIKit.framework in Frameworks */,
+				941F245013FB056500210774 /* Foundation.framework in Frameworks */,
+				941F245213FB056500210774 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		941F243E13FB056500210774 = {
+			isa = PBXGroup;
+			children = (
+				941F245313FB056500210774 /* testDragAndDrop */,
+				941F244C13FB056500210774 /* Frameworks */,
+				941F244A13FB056500210774 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		941F244A13FB056500210774 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				941F244913FB056500210774 /* testDragAndDrop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		941F244C13FB056500210774 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				941F244D13FB056500210774 /* UIKit.framework */,
+				941F244F13FB056500210774 /* Foundation.framework */,
+				941F245113FB056500210774 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		941F245313FB056500210774 /* testDragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				941F246D13FB05A900210774 /* DND Framework */,
+				941F247913FDAD5000210774 /* DragDropDemoTable1.h */,
+				941F247A13FDAD5000210774 /* DragDropDemoTable1.m */,
+				941F247C13FDAD6000210774 /* DragDropDemoTable2.h */,
+				941F247D13FDAD6000210774 /* DragDropDemoTable2.m */,
+				941F246213FB056500210774 /* testDragAndDropViewController.h */,
+				941F246313FB056500210774 /* testDragAndDropViewController.m */,
+				941F246513FB056500210774 /* testDragAndDropViewController.xib */,
+				941F245F13FB056500210774 /* MainWindow.xib */,
+				941F245C13FB056500210774 /* testDragAndDropAppDelegate.h */,
+				941F245D13FB056500210774 /* testDragAndDropAppDelegate.m */,
+				941F245413FB056500210774 /* Supporting Files */,
+			);
+			path = testDragAndDrop;
+			sourceTree = "<group>";
+		};
+		941F245413FB056500210774 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				941F245513FB056500210774 /* testDragAndDrop-Info.plist */,
+				941F245613FB056500210774 /* InfoPlist.strings */,
+				941F245913FB056500210774 /* testDragAndDrop-Prefix.pch */,
+				941F245A13FB056500210774 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		941F246D13FB05A900210774 /* DND Framework */ = {
+			isa = PBXGroup;
+			children = (
+				941F246E13FB07A100210774 /* DnDOverlayView.xib */,
+				941F247013FB07D400210774 /* DnDOverlayView.h */,
+				941F247113FB07D400210774 /* DnDOverlayView.m */,
+				941F247313FDA32000210774 /* DnDManager.h */,
+				941F247413FDA32000210774 /* DnDManager.m */,
+				941F247613FDA8C600210774 /* DnDProtocols.h */,
+			);
+			name = "DND Framework";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		941F244813FB056500210774 /* testDragAndDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 941F246A13FB056500210774 /* Build configuration list for PBXNativeTarget "testDragAndDrop" */;
+			buildPhases = (
+				941F244513FB056500210774 /* Sources */,
+				941F244613FB056500210774 /* Frameworks */,
+				941F244713FB056500210774 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testDragAndDrop;
+			productName = testDragAndDrop;
+			productReference = 941F244913FB056500210774 /* testDragAndDrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		941F244013FB056500210774 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 941F244313FB056500210774 /* Build configuration list for PBXProject "testDragAndDrop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 941F243E13FB056500210774;
+			productRefGroup = 941F244A13FB056500210774 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				941F244813FB056500210774 /* testDragAndDrop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		941F244713FB056500210774 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				941F245813FB056500210774 /* InfoPlist.strings in Resources */,
+				941F246113FB056500210774 /* MainWindow.xib in Resources */,
+				941F246713FB056500210774 /* testDragAndDropViewController.xib in Resources */,
+				941F246F13FB07A100210774 /* DnDOverlayView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		941F244513FB056500210774 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				941F245B13FB056500210774 /* main.m in Sources */,
+				941F245E13FB056500210774 /* testDragAndDropAppDelegate.m in Sources */,
+				941F246413FB056500210774 /* testDragAndDropViewController.m in Sources */,
+				941F247213FB07D400210774 /* DnDOverlayView.m in Sources */,
+				941F247513FDA32000210774 /* DnDManager.m in Sources */,
+				941F247B13FDAD5000210774 /* DragDropDemoTable1.m in Sources */,
+				941F247E13FDAD6000210774 /* DragDropDemoTable2.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		941F245613FB056500210774 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				941F245713FB056500210774 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		941F245F13FB056500210774 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				941F246013FB056500210774 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		941F246513FB056500210774 /* testDragAndDropViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				941F246613FB056500210774 /* en */,
+			);
+			name = testDragAndDropViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		941F246813FB056500210774 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		941F246913FB056500210774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		941F246B13FB056500210774 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testDragAndDrop/testDragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "testDragAndDrop/testDragAndDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		941F246C13FB056500210774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testDragAndDrop/testDragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "testDragAndDrop/testDragAndDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		941F244313FB056500210774 /* Build configuration list for PBXProject "testDragAndDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				941F246813FB056500210774 /* Debug */,
+				941F246913FB056500210774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		941F246A13FB056500210774 /* Build configuration list for PBXNativeTarget "testDragAndDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				941F246B13FB056500210774 /* Debug */,
+				941F246C13FB056500210774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 941F244013FB056500210774 /* Project object */;
+}
