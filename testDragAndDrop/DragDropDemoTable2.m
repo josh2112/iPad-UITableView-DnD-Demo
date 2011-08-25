@@ -109,6 +109,10 @@
 // Returns the center of the table row where an item hovered at this point would be dropped.
 - (CGPoint)actualDropPointForLocation:(CGPoint)point {
     int row = [self rowAtPoint:point];
+    // If the point is past the last cell, return the rectangle of the last cell (which
+    // will be the placeholder)
+    if( row >= [items count] ) row = [items count] -1;
+    
     CGRect rowRect = [self rectForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
     return CGPointMake( CGRectGetMidX( rowRect ), CGRectGetMidY( rowRect ));
 }
@@ -145,7 +149,7 @@
 // Move the placeholder if necessary.
 - (void)draggable:(UIView*)draggable hoveringAtPoint:(CGPoint)point {
     int row = [self rowAtPoint:point];
-    // If row is past the last cell, set it to the last cell (because we don't want to add a new cell,
+    // If row is past the last cell, use the last cell (because we don't want to add a new cell,
     // just remove the existing placeholder to the end)
     if( row >= [items count] ) row = [items count]-1;
     

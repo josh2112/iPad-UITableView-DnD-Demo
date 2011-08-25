@@ -109,7 +109,10 @@
 // Returns the center of the table row where an item hovered at this point would be dropped.
 - (CGPoint)actualDropPointForLocation:(CGPoint)point {
     NSIndexPath* newIndexPath = [self indexPathForRowAtPoint:point];
-    if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:[items count] inSection:0];
+    // If the point is past the last cell, return the rectangle of the last cell (which
+    // will be the placeholder)
+    if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:[items count]-1 inSection:0];
+    
     CGRect rowRect = [self rectForRowAtIndexPath:newIndexPath];
     return CGPointMake( CGRectGetMidX( rowRect ), CGRectGetMidY( rowRect ));
 }
@@ -131,7 +134,7 @@
 // Move the placeholder if necessary.
 - (void)draggable:(UIView*)draggable hoveringAtPoint:(CGPoint)point {
     NSIndexPath* newIndexPath = [self indexPathForRowAtPoint:point];
-    // If row is past the last cell, set it to the last cell (because we don't want to add a new cell,
+    // If row is past the last cell, use the last cell (because we don't want to add a new cell,
     // just remove the existing placeholder to the end)
     if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:[items count]-1 inSection:0];
     

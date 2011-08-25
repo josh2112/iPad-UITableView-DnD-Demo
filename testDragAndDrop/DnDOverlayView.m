@@ -51,9 +51,14 @@
 
 @end
 
+////////////////////////////////////////////////////////////////////////////////////////
 
 @interface DnDOverlayView(Private)
+
 - (void)setHighlight:(BOOL)highlight onDropTarget:(UIView<DropTarget>*)dropTarget;
+- (void)notifyDraggableEntered:(UIView<DropTarget>*)target atPoint:(CGPoint)point;
+- (void)animateDropOn:(UIView<DropTarget>*)dropTarget atPoint:(CGPoint)point withDuration:(float)duration;
+    
 @end
 
 @implementation DnDOverlayView
@@ -122,6 +127,13 @@
     }
 }
 
+- (void)notifyDraggableEntered:(UIView<DropTarget>*)target atPoint:(CGPoint)point {
+    dragOperation.currentDropTarget = target;
+    [self setHighlight:YES onDropTarget:target];
+    [target draggable:dragOperation.draggable enteredAtPoint:point];
+}
+
+
 #pragma mark - Touch handling
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -159,9 +171,7 @@
                 
                 // If the drag source is also a drop target, tell it the draggable is hovering over it.
                 if( [dragSource conformsToProtocol:@protocol(DropTarget)] ) {
-                    dragOperation.currentDropTarget = (UIView<DropTarget>*)dragSource;
-                    [self setHighlight:YES onDropTarget:dragOperation.currentDropTarget];
-                    [(UIView<DropTarget>*)dragSource draggable:dragOperation.draggable enteredAtPoint:point];
+                    [self notifyDraggableEntered:(UIView<DropTarget>*)dragSource atPoint:point];
                 }
                 
                 return;
@@ -202,12 +212,28 @@
         CGPoint point = [touch locationInView:dropTarget];
         if( CGRectContainsPoint( dropTarget.bounds, point )) {
             NSLog( @"Detected drag into drop target!!!" );
-            
-            dragOperation.currentDropTarget = dropTarget;
-            [self setHighlight:YES onDropTarget:dropTarget];
-            [dropTarget draggable:dragOperation.draggable enteredAtPoint:point];
+            [self notifyDraggableEntered:dropTarget atPoint:point];
         }
     }
+}
+
+// Animate the draggable to its proper dropped location... AFTER the animation is
+// complete will we do the actual drop.
+- (void)animateDropOn:(UIView<DropTarget>*)dropTarget atPoint:(CGPoint)point withDuration:(float)duration {
+    [UIView animateWithDuration:duration
+    animations:^(void) {
+        dragOperation.dropAnimationInProgress = YES;
+        dragOperation.draggable.center = [self convertPoint:point fromView:dropTarget];
+        dragOperation.draggable.transform = CGAffineTransformIdentity;
+    }
+     completion:^(BOOL finished) {
+         [dropTarget draggable:dragOperation.draggable droppedAtPoint:point];
+         dragOperation.dropAnimationInProgress = NO;
+         [dragOperation.draggable removeFromSuperview];
+         [dragOperation release];
+         dragOperation = 0;
+     }];
+
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -215,49 +241,22 @@
     
     UITouch* touch = [touches anyObject];
     
-    [self setHighlight:NO onDropTarget:dragOperation.currentDropTarget]; 
+    [self setHighlight:NO onDropTarget:dragOperation.currentDropTarget];
     
     // If we have a current drop target, drop the draggable there
     if( dragOperation.currentDropTarget != nil ) {
         NSLog( @"Transferring draggable to drop target!" );
         CGPoint point = [touch locationInView:dragOperation.currentDropTarget];
         
-        // Animate the draggable to its proper dropped location... AFTER the animation is
-        // complete will we do the actual drop.
-        [UIView animateWithDuration:0.1f animations:^(void) {
-            dragOperation.dropAnimationInProgress = YES;
-            CGPoint adjustedPoint = [dragOperation.currentDropTarget actualDropPointForLocation:point];
-            dragOperation.draggable.center = [self convertPoint:adjustedPoint fromView:dragOperation.currentDropTarget];
-            dragOperation.draggable.transform = CGAffineTransformIdentity;
-        }
-        completion:^(BOOL finished) {
-            [dragOperation.currentDropTarget draggable:dragOperation.draggable droppedAtPoint:point];
-            dragOperation.dropAnimationInProgress = NO;
-            [dragOperation.draggable removeFromSuperview];
-            [dragOperation release];
-            dragOperation = 0;
-        }];
+        CGPoint adjustedPoint = [dragOperation.currentDropTarget actualDropPointForLocation:point];
+        [self animateDropOn:dragOperation.currentDropTarget atPoint:adjustedPoint withDuration:0.1f];
     }
     else {
         // If the original drag source is also a drop target, put the draggable back in its
         // original spot.
         if( [dragOperation.dragSource conformsToProtocol:@protocol(DropTarget)] ) {
             NSLog( @"Transferring draggable back to source" );
-                  
-            [(id<DropTarget>)dragOperation.dragSource draggable:dragOperation.draggable droppedAtPoint:dragOperation.initialPoint];
-            
-            [UIView animateWithDuration:0.3f animations:^{
-                dragOperation.dropAnimationInProgress = YES;
-                CGPoint adjustedPoint = [self convertPoint:dragOperation.initialPoint fromView:dragOperation.dragSource];
-                dragOperation.draggable.center = adjustedPoint;
-                dragOperation.draggable.transform = CGAffineTransformIdentity;
-            }
-            completion:^(BOOL finished) {
-                dragOperation.dropAnimationInProgress = NO;
-                [dragOperation.draggable removeFromSuperview];
-                [dragOperation release];
-                dragOperation = 0;
-            }];
+            [self animateDropOn:(UIView<DropTarget>*)dragOperation.dragSource atPoint:dragOperation.initialPoint withDuration:0.3f];
         }
         else {
             // Otherwise, just kill it?
